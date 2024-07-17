@@ -1,0 +1,74 @@
+
+class find_primeN:
+    
+    def __init__(self, number: int) -> None:
+        try:
+            assert number >= 2
+            self.number = number
+        except TypeError:
+            print(f"You input {number} \n Only int type is available")
+        except AssertionError:
+            print(f"You input {number} \n Number must be bigger than 2")
+            
+            
+    def __is_prime(self) -> bool:
+        
+        for i in range(2,self.number):
+            if self.number % i ==0:
+                prime_flag = False
+                break
+        else:
+            prime_flag = True
+        
+        return prime_flag
+    
+    
+    def check_prime(self):
+        if self.__is_prime():
+            print(f"{self.number} is Prime Number")
+        else:
+            print(f"{self.number} is not Prime Number")
+            
+
+
+class count_number:
+    
+    def __init__(self, start_num:int, end_num:int) -> None:
+        try:
+            assert start_num > 0, "Start Number must be bigger than 0"
+            assert end_num > start_num, "End Number must be bigger than Start Number"
+            self.s_n = start_num
+            self.e_n = end_num
+        except TypeError:
+            print(f"You input {start_num} & {end_num} \n Only int type is available")
+            
+        except AssertionError as e:
+            print(e)
+            
+    def print_count(self, number:int) -> None:
+        try: 
+            assert number >= self.s_n, "Input Number must be bigger than Start Number"
+            assert self.e_n >= number, " Number must be less than End Number"
+        except TypeError:
+            print(f"You input {number} \n Only int type is available")
+        except AssertionError as e:
+            print(e)
+        else:
+            str_int = str(number)
+            count_flag = 0
+            for i in range(self.s_n, self.e_n + 1):
+                count_flag += str(i).count(str_int)
+            
+            print(f"{number} comes out {count_flag} times in range {self.s_n} to {self.e_n}")        
+        
+        return None  
+            
+                
+if __name__ == "__main__":
+    
+    test_range = count_number(1,10)
+    test_range.print_count(99)
+    
+               
+            
+   
