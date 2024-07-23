@@ -1,0 +1,6 @@
+-- 실무에서는 left join 이랑 inner join만 쓰임
+-- -- left join : A와 B의 칼럼들 모두 표시
+-- -- 근데 A 테이블 기준. A에 있지만 B에 없는 것들은 
+-- 검증법
+-- 차집합 ( A left join B where b.key is Null)과 B 간에 교집합이 없어야함
+-- -- 즉, inner join시 아무것도 나오지 않아야 함
